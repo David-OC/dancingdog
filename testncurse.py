@@ -2,44 +2,37 @@
 # -*- coding: utf-8 -*-
 
 import curses, time, locale, sys, traceback
-#import time
-#import locale
-#import sys
-from dogspritetext import *
+from doggunk4 import *
+
 try:
     locale.setlocale(locale.LC_ALL, '')
-    # Create curses screen
     scr = curses.initscr()
-    #scr.refresh()
+    
+    curses.start_color()
+    curses.use_default_colors()
+    curses.curs_set(0)
     curses.noecho()
 
-    # Get screen width/height
-    #height,width = scr.getmaxyx()
+    curses.init_pair(1, 16, -1)
+    curses.init_pair(2, 16, 255)
+    curses.init_pair(3, 255, 16)
+    curses.init_pair(4, -1, 16)
+    
+    height,width = scr.getmaxyx()
+    
+    posx = width / 2 - 9
+    posy = height / 2 - 3
 
-    # Fill the window with text (note that 5 lines are lost forever)
-#for i in range(0, height + 15):
-#    mypad.addstr("{0} This is a sample string...\n".format(i))
-#    if i > height: mypad_pos = min(i - height, mypad_height - height)
-#    mypad_refresh()
-#    time.sleep(0.05)
-#
     while True:
-        scr.addstr(0,0,dogdance1)
+        draw_dog1(scr,posx,posy)
         scr.refresh()
-        time.sleep(0.5)
-        scr.addstr(0,0,dogdance2)
-        scr.refresh()
-        time.sleep(0.5)
+        time.sleep(0.2)
 
-# End curses
-#curses.nocbreak()
-    curses.echo()
-    curses.endwin()
-except:
-    #curses.nocbreak()
-    exec_info = sys.exc_info()
-    traceback.print_exception(*exec_info)
-    del exec_info
+        draw_dog2(scr,posx,posy)
+        scr.refresh()
+        time.sleep(0.2)
+
+    scr.keypad(0)
 finally:
     curses.echo()
     curses.nocbreak()
