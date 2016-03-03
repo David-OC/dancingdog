@@ -102,7 +102,6 @@ def draw_dog1(scr,posx,posy):
         for st,pair in zip(code,num):
             scr.addstr(posy,width,st,curses.color_pair(pair))
             width=width+(len(st.decode('utf-8')))
-            #width=width+(len(st))
         posy=posy+1
         width=posx
 
@@ -116,21 +115,15 @@ def draw_dog2(scr,posx,posy):
         posy=posy+1
         width=posx
 
-#def draw_dog2(scr,posx,posy):
-#    i = 0
-#    for num in dog2pallete:
-#        scr.addstr(dogdance2[i],curses.color_pair(num))
-#        i = i + 1
+#def main():
+#    i = 1
+#    for code,num in zip(dogdance2,dog2pallete):
+#        for st,pair in zip(code,num):
+#            #print st
+#            print len(st.decode('utf-8'))
+#            #i = i + 1
+#        #print "-------------------"
+#        #print len(code),len(num)
 #
-def main():
-    i = 1
-    for code,num in zip(dogdance2,dog2pallete):
-        for st,pair in zip(code,num):
-            #print st
-            print len(st.decode('utf-8'))
-            #i = i + 1
-        #print "-------------------"
-        #print len(code),len(num)
-
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()

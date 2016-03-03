@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import curses, time, locale, sys, traceback
-from doggunk4 import *
+from doggunk import *
 
 try:
     locale.setlocale(locale.LC_ALL, '')
