@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-import curses, time, locale, sys, traceback
+import curses, time, locale
 from doggunk import *
 
 try:
