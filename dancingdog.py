@@ -2,7 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import curses, time, locale
+import pygame
 from doggunk import *
+
+import signal
+import sys
+
+def signal_handler(signal, frame):
+    curses.noqiflush()
+
+signal.signal(signal.SIGINT, signal_handler)
+pygame.init()
+pygame.mixer.music.load("mus_dance_of_dog.ogg")
+pygame.mixer.music.play()
 
 try:
     locale.setlocale(locale.LC_ALL, '')
@@ -23,7 +35,7 @@ try:
     posx = width / 2 - 9
     posy = height / 2 - 3
 
-    while True:
+    while pygame.mixer.music.get_busy():
         draw_dog1(scr,posx,posy)
         scr.refresh()
         time.sleep(0.2)
