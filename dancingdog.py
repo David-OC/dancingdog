@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-import curses, time, locale
+import curses, time, locale, sys, os
 import pygame
 from doggunk import *
 
@@ -11,9 +11,12 @@ import sys
 def signal_handler(signal, frame):
     curses.noqiflush()
 
+scriptpath = os.path.dirname(os.path.abspath(__file__))
+musicfile = "mus_dance_of_dog.ogg"
+
 signal.signal(signal.SIGINT, signal_handler)
 pygame.init()
-pygame.mixer.music.load("mus_dance_of_dog.ogg")
+pygame.mixer.music.load(scriptpath + '/' + musicfile)
 pygame.mixer.music.play()
 
 try:
