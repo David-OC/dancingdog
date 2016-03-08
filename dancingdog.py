@@ -10,6 +10,17 @@ import sys
 
 def signal_handler(signal, frame):
     curses.noqiflush()
+def init_curses(scr):
+
+    curses.start_color()
+    curses.use_default_colors()
+    curses.curs_set(0)
+    curses.noecho()
+
+    curses.init_pair(1, 16, -1)
+    curses.init_pair(2, 16, 255)
+    curses.init_pair(3, 255, 16)
+    curses.init_pair(4, -1, 16)
 
 scriptpath = os.path.dirname(os.path.abspath(__file__))
 musicfile = "mus_dance_of_dog.ogg"
@@ -23,18 +34,10 @@ try:
     locale.setlocale(locale.LC_ALL, '')
     scr = curses.initscr()
     
-    curses.start_color()
-    curses.use_default_colors()
-    curses.curs_set(0)
-    curses.noecho()
-
-    curses.init_pair(1, 16, -1)
-    curses.init_pair(2, 16, 255)
-    curses.init_pair(3, 255, 16)
-    curses.init_pair(4, -1, 16)
+    init_curses(scr)
     
     height,width = scr.getmaxyx()
-    
+
     posx = width / 2 - 9
     posy = height / 2 - 3
 
@@ -42,10 +45,11 @@ try:
         draw_dog1(scr,posx,posy)
         scr.refresh()
         time.sleep(0.2)
-
+        #Draw the next frame
         draw_dog2(scr,posx,posy)
         scr.refresh()
         time.sleep(0.2)
+        #Repeat 'till the song stops
 
     scr.keypad(0)
 finally:
