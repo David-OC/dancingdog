@@ -1,5 +1,6 @@
-import curses
 # -*- coding: utf-8 -*-
+
+import curses
 
 dogdance1=[[
 ' ▄','▄','▄', #3
