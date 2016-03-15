@@ -1,0 +1,8 @@
+
+function command_not_found_handle {
+    SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"	
+   
+    /usr/bin/env python2 $SCRIPT_DIR/dancingdog.py
+
+    return 127
+}

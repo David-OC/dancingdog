@@ -1,0 +1,9 @@
+
+function command_not_found_handler {
+    CURRENT_DIR=${(%):-%x}
+    SCRIPT_DIR="$( cd "$( dirname "${CURRENT_DIR}" )" && pwd )"	
+    
+    /usr/bin/env python2 $SCRIPT_DIR/dancingdog.py
+
+    return 127
+}
