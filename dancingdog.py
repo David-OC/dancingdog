@@ -2,6 +2,8 @@
 
 import curses, time, locale, sys, os
 import pygame
+from pygame import mixer
+import pyglet
 from doggunk import *
 
 import signal
@@ -25,7 +27,7 @@ scriptpath = os.path.dirname(os.path.abspath(__file__))
 musicfile = "mus_dance_of_dog.ogg"
 
 signal.signal(signal.SIGINT, signal_handler)
-pygame.init()
+pygame.mixer.init()
 pygame.mixer.music.load(scriptpath + '/' + musicfile)
 pygame.mixer.music.play()
 
