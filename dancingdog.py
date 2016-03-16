@@ -2,6 +2,8 @@
 
 import curses, time, locale, sys, os
 import pygame
+from pygame import mixer
+import pyglet
 from doggunk import *
 
 import signal
@@ -35,7 +37,8 @@ signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTSTP, signal_handler)
 
 #Setting up pygame's audio parts
-pygame.init()
+#pygame.init()
+pygame.mixer.init()
 pygame.mixer.music.load(scriptpath + '/' + musicfile)
 pygame.mixer.music.play()
 
