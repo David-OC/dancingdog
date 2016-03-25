@@ -3,7 +3,7 @@
 import curses, time, locale, sys, os
 import pygame
 from pygame import mixer
-import pyglet
+#import pyglet
 from doggunk import *
 
 import signal
