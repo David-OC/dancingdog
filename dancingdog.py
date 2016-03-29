@@ -2,6 +2,8 @@
 
 import curses, time, locale, sys, os, signal
 import pygame
+from pygame import mixer
+#import pyglet
 from doggunk import *
 
 def signal_handler(signal, frame):
