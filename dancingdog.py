@@ -1,19 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import curses, time, locale, sys, os
+import curses, time, locale, sys, os, signal
 import pygame
-from pygame import mixer
-import pyglet
 from doggunk import *
-
-import signal
-import sys
 
 def signal_handler(signal, frame):
     curses.noqiflush()
-
-def signal_handler(signal, frame):
-    pass    
 
 def init_curses(scr):
     #Drawing the dog requires 256 colors, so this is done first
@@ -37,7 +29,6 @@ signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTSTP, signal_handler)
 
 #Setting up pygame's audio parts
-#pygame.init()
 pygame.mixer.init()
 pygame.mixer.music.load(scriptpath + '/' + musicfile)
 pygame.mixer.music.play()
